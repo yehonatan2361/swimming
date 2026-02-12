@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <title>הצהרת בריאות</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>הצהרת בריאות</h1>
+        <p>אנא מלא את הטופס ושלח את ההצהרה למייל שלנו</p>
+
+        <form action="https://formspree.io/f/maqdqelq" method="POST">
+            <label for="name">שם מלא:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">גיל:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="symptoms">סימפטומים אחרונים (אם יש):</label>
+            <textarea id="symptoms" name="symptoms" rows="4"></textarea>
+
+            <label>
+                <input type="checkbox" name="agree" required>
+                אני מאשר את הצהרת הבריאות
+            </label>
+
+            <button type="submit">שלח</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const form = document.querySelector("form");
+        const message = document.getElementById("message");
+
+        form.addEventListener("submit", function(e){
+            // מציג הודעת תודה מיד
+            message.textContent = "תודה, ההצהרה נשלחה!";
+        });
+    </script>
+</body>
+</html>
